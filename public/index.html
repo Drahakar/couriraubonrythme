@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Welcome to Firebase Hosting</title>
+
+    <!-- update the version number as needed -->
+    <script defer src="/__/firebase/4.10.1/firebase-app.js"></script>
+
+    <style media="screen">
+      body {background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAIAAABLbSncAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAZdEVYdFNvZnR3YXJlAHBhaW50Lm5ldCA0LjAuMjHxIGmVAAAAZ0lEQVQYV0WOAQ6AIAwD+ZBG/f97ED8galjrOog2ZLBrM5aYV5SFePyARsmrJdF9AxoNQSV/JQXROotq/ZLxZWEXUQG1aaCgOGbmCbx/IyZU0bLRTt/CjdgE9AnKiqqVMX4IaWMPkS/p3bdsbFwdYAAAAABJRU5ErkJggg=='); color: rgba(0,0,0,0.87); font-family: Roboto, Helvetica, Arial, sans-serif; margin: 0; padding: 0; }
+      .message-wrapper {background: url('data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAYABgAAD/4QBoRXhpZgAATU0AKgAAAAgABAEaAAUAAAABAAAAPgEbAAUAAAABAAAARgEoAAMAAAABAAIAAAExAAIAAAARAAAATgAAAAAAAABgAAAAAQAAAGAAAAABcGFpbnQubmV0IDQuMC4yMQAA/9sAQwACAQECAQECAgICAgICAgMFAwMDAwMGBAQDBQcGBwcHBgcHCAkLCQgICggHBwoNCgoLDAwMDAcJDg8NDA4LDAwM/9sAQwECAgIDAwMGAwMGDAgHCAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwM/8AAEQgAAwADAwEiAAIRAQMRAf/EAB8AAAEFAQEBAQEBAAAAAAAAAAABAgMEBQYHCAkKC//EALUQAAIBAwMCBAMFBQQEAAABfQECAwAEEQUSITFBBhNRYQcicRQygZGhCCNCscEVUtHwJDNicoIJChYXGBkaJSYnKCkqNDU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6g4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2drh4uPk5ebn6Onq8fLz9PX29/j5+v/EAB8BAAMBAQEBAQEBAQEAAAAAAAABAgMEBQYHCAkKC//EALURAAIBAgQEAwQHBQQEAAECdwABAgMRBAUhMQYSQVEHYXETIjKBCBRCkaGxwQkjM1LwFWJy0QoWJDThJfEXGBkaJicoKSo1Njc4OTpDREVGR0hJSlNUVVZXWFlaY2RlZmdoaWpzdHV2d3h5eoKDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uLj5OXm5+jp6vLz9PX29/j5+v/aAAwDAQACEQMRAD8A/KOaBZ7iTO5djtGAjFRhSVHAxzgDJ6k5JySTRRRXYdB//9k=')}
+      #message { background: white; max-width: 360px; margin: 100px auto 16px; padding: 32px 24px; }
+      #message h2 { color: #ffa100; font-weight: bold; font-size: 16px; margin: 0 0 8px; }
+      #message h1 { font-size: 22px; font-weight: 300; margin: 0 0 16px;}
+      p { line-height: 140%; margin: 16px 0 24px; font-size: 14px; }
+      a { }
+      #message, #message a { box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24); }
+      #load { color: rgba(0,0,0,0.4); text-align: center; font-size: 13px; }
+      @media (max-width: 600px) {
+        body, #message { margin-top: 0; background: white; box-shadow: none; }
+        body { border-top: 16px solid #ffa100; }
+      }
+
+      .program {
+        margin-top: 3px;
+        margin-bottom: 15px;
+        display: flex;
+      }
+
+      a.item {
+        cursor: pointer;
+        margin-bottom: 8px;
+        display: block; 
+        text-align: center; 
+        background: #ffe301;
+        text-transform: uppercase; 
+        text-decoration: none; 
+        color: black;
+        padding: 16px; 
+        border-radius: 4px; 
+      }
+
+      a.item.selected {
+        background: #417792;
+      }
+
+      .dateselection {
+        margin-bottom: 8px;
+      }
+
+      .dateselection#event-date {
+        margin-right: 25px;
+      }
+
+      input#event-date {
+        margin-left: 25px;
+      }
+
+      hr {
+        margin-top: 25px;
+        margin-bottom: 25px;
+      }
+    </style>
+
+
+  </head>
+  <body>
+    <a href="https://github.com//Drahakar/couriraubonrythme"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_left_darkblue_121621.png" alt="Fork me on GitHub"></a>
+    <div class="message-wrapper">
+      <div id="message" class="section">
+        <h1>Courir au bon rythme</h1>
+        <div id="calendar-list">
+          <a class="calendar-item" onclick="listCalendars()">Charger mes calendriers</a>
+        </div>
+        <hr/>
+        <div id="program-list" class="section">
+        </div>
+        <hr/>
+        <div id="dateselection" class="section">
+        </div>
+        <hr/>
+        <div id="addToCalendar" class="section">
+        </div>
+      </div>
+    </div>
+
+
+    <script type="text/javascript">
+
+      var programA = [
+        {name:'5k', program: [{weeknumber: 14,weektraining: [{dayofweek:1,training: "R"},{dayofweek:2,training: "30'"},{dayofweek:3,training: "R"},{dayofweek:4,training: "30' 2x3' R2 (3'entre)"},{dayofweek:5,training: "R"},{dayofweek:6,training: "25'"},{dayofweek:7,training: "35'"}]},{weeknumber: 13,weektraining: [{dayofweek:1,training: "R"},{dayofweek:2,training: "30'"},{dayofweek:3,training: "R"},{dayofweek:4,training: "35' 2x4' R2 (4'entre)"},{dayofweek:5,training: "R"},{dayofweek:6,training: "25'"},{dayofweek:7,training: "40'"}]},{weeknumber: 12,weektraining: [{dayofweek:1,training: "R"},{dayofweek:2,training: "30'"},{dayofweek:3,training: "R"},{dayofweek:4,training: "40' 2x5' R2 (5'entre)"},{dayofweek:5,training: "30'"},{dayofweek:6,training: "25'"},{dayofweek:7,training: "45'"}]},{weeknumber: 11,weektraining: [{dayofweek:1,training: "R"},{dayofweek:2,training: "30'"},{dayofweek:3,training: "R"},{dayofweek:4,training: "35' 10' R2"},{dayofweek:5,training: "R"},{dayofweek:6,training: "25'"},{dayofweek:7,training: "40'"}]},{weeknumber: 10,weektraining: [{dayofweek:1,training: "R"},{dayofweek:2,training: "30' 3x1' R3 (1' entre)"},{dayofweek:3,training: "R"},{dayofweek:4,training: "35' 2x8' R2 (8' entre)"},{dayofweek:5,training: "R"},{dayofweek:6,training: "25'"},{dayofweek:7,training: "45'"}]},{weeknumber: 9,weektraining: [{dayofweek:1,training: "R"},{dayofweek:2,training: "30' 2x1' 30'' R3 (1'30'' entre)"},{dayofweek:3,training: "R"},{dayofweek:4,training: "40' 4x3' R3 (3' entre)"},{dayofweek:5,training: "R"},{dayofweek:6,training: "25'"},{dayofweek:7,training: "50'"}]},{weeknumber: 8,weektraining: [{dayofweek:1,training: "R"},{dayofweek:2,training: "30' 3x1' R4 (1' entre)"},{dayofweek:3,training: "R"},{dayofweek:4,training: "45' 3x4' R3 (4' entre)"},{dayofweek:5,training: "R"},{dayofweek:6,training: "25'"},{dayofweek:7,training: "50'"}]},{weeknumber: 7,weektraining: [{dayofweek:1,training: "R"},{dayofweek:2,training: "35' 2x3' R3 (3' entre)"},{dayofweek:3,training: "R"},{dayofweek:4,training: "30'"},{dayofweek:5,training: "R"},{dayofweek:6,training: "20'"},{dayofweek:7,training: "Test 5 km"}]},{weeknumber: 6,weektraining: [{dayofweek:1,training: "R"},{dayofweek:2,training: "30' 3x2' R3 (2' enntre)"},{dayofweek:3,training: "R"},{dayofweek:4,training: "40' 2x6' R3 (6' entre)"},{dayofweek:5,training: "R"},{dayofweek:6,training: "25'"},{dayofweek:7,training: "40'"}]},{weeknumber: 5,weektraining: [{dayofweek:1,training: "R"},{dayofweek:2,training: "40' 6x30'' R4 (30'' entre)"},{dayofweek:3,training: "R"},{dayofweek:4,training: "45'5x3'R3(3'entre)"},{dayofweek:5,training: "R"},{dayofweek:6,training: "20'"},{dayofweek:7,training: "60'"}]},{weeknumber: 4,weektraining: [{dayofweek:1,training: "R"},{dayofweek:2,training: "35' 4x1' R4 (1' entre)"},{dayofweek:3,training: "R"},{dayofweek:4,training: "45' 2x5' R3 (5' entre)"},{dayofweek:5,training: "R"},{dayofweek:6,training: "20'"},{dayofweek:7,training: "45'"}]},{weeknumber: 3,weektraining: [{dayofweek:1,training: "R"},{dayofweek:2,training: "30' 5x45'' R4 (45'' entre)"},{dayofweek:3,training: "R"},{dayofweek:4,training: "40' 2x7' R3 (7' entre)"},{dayofweek:5,training: "R"},{dayofweek:6,training: "25'"},{dayofweek:7,training: "50'"}]},{weeknumber: 2,weektraining: [{dayofweek:1,training: "R"},{dayofweek:2,training: "30' 8x30'' R4 (30'' entre)"},{dayofweek:3,training: "R"},{dayofweek:4,training: "35' 12' R3"},{dayofweek:5,training: "R"},{dayofweek:6,training: "20'"},{dayofweek:7,training: "45'"}]},{weeknumber: 1,weektraining: [{dayofweek:1,training: "R"},{dayofweek:2,training: "30' 5' R3"},{dayofweek:3,training: "R"},{dayofweek:4,training: "25'"},{dayofweek:5,training: "R"},{dayofweek:6,training: "20'"},{dayofweek:7,training: "Compétition 5 km"}]}]},
+        {name:'10k', program: [{weeknumber: 14,weektraining: [{dayofweek:1,training: "R"},{dayofweek:2,training: "30'"},{dayofweek:3,training: "R"},{dayofweek:4,training: "35' 3x3' R2(3'entre)"},{dayofweek:5,training: "R"},{dayofweek:6,training: "30' "},{dayofweek:7,training: "40'"}]},{weeknumber: 13,weektraining: [{dayofweek:1,training: "R"},{dayofweek:2,training: "35'"},{dayofweek:3,training: "R"},{dayofweek:4,training: "40' 3x4' R2(4'entre)"},{dayofweek:5,training: "R"},{dayofweek:6,training: "30'"},{dayofweek:7,training: "35'"}]},{weeknumber: 12,weektraining: [{dayofweek:1,training: "R"},{dayofweek:2,training: "35'"},{dayofweek:3,training: "R"},{dayofweek:4,training: "40' 2x10' R2(8'entre)"},{dayofweek:5,training: "R"},{dayofweek:6,training: "30'"},{dayofweek:7,training: "45'"}]},{weeknumber: 11,weektraining: [{dayofweek:1,training: "R"},{dayofweek:2,training: "35'"},{dayofweek:3,training: "R"},{dayofweek:4,training: "40' 15' R2"},{dayofweek:5,training: "R"},{dayofweek:6,training: "30'"},{dayofweek:7,training: "40'"}]},{weeknumber: 10,weektraining: [{dayofweek:1,training: "R"},{dayofweek:2,training: "30' 3x1' R3(1'entre)"},{dayofweek:3,training: "R"},{dayofweek:4,training: "40' 2x10' R2(5'entre)"},{dayofweek:5,training: "R"},{dayofweek:6,training: "30'"},{dayofweek:7,training: "50'"}]},{weeknumber: 9,weektraining: [{dayofweek:1,training: "R"},{dayofweek:2,training: "35' 3x1' 30''R3(1'30''entre)"},{dayofweek:3,training: "R"},{dayofweek:4,training: "45' 5x3' R3(3'entre)"},{dayofweek:5,training: "R"},{dayofweek:6,training: "30'"},{dayofweek:7,training: "55'"}]},{weeknumber: 8,weektraining: [{dayofweek:1,training: "R"},{dayofweek:2,training: "30' 4x1' R4(1'entre)"},{dayofweek:3,training: "R"},{dayofweek:4,training: "45' 2x6' R3(6'entre)"},{dayofweek:5,training: "R"},{dayofweek:6,training: "25'"},{dayofweek:7,training: "60'"}]},{weeknumber: 7,weektraining: [{dayofweek:1,training: "R"},{dayofweek:2,training: "40' 2x3' R3(3'entre)"},{dayofweek:3,training: "R"},{dayofweek:4,training: "30'"},{dayofweek:5,training: "R"},{dayofweek:6,training: "20'"},{dayofweek:7,training: "Test 10 km"}]},{weeknumber: 6,weektraining: [{dayofweek:1,training: "R"},{dayofweek:2,training: "35' 3x2' R4(2'entre)"},{dayofweek:3,training: "R"},{dayofweek:4,training: "40' 3x4' R3(4'entre)"},{dayofweek:5,training: "R"},{dayofweek:6,training: "30'"},{dayofweek:7,training: "50'"}]},{weeknumber: 5,weektraining: [{dayofweek:1,training: "R"},{dayofweek:2,training: "35' 8x30''R4(30''entre)"},{dayofweek:3,training: "R"},{dayofweek:4,training: "50' 6x3' R3(3'entre)"},{dayofweek:5,training: "R"},{dayofweek:6,training: "20'"},{dayofweek:7,training: "65'"}]},{weeknumber: 4,weektraining: [{dayofweek:1,training: "R"},{dayofweek:2,training: "40' 5x1' R4(1'entre)"},{dayofweek:3,training: "R"},{dayofweek:4,training: "45' 3x5' R3(5'entre)"},{dayofweek:5,training: "R"},{dayofweek:6,training: "25'"},{dayofweek:7,training: "75'"}]},{weeknumber: 3,weektraining: [{dayofweek:1,training: "R"},{dayofweek:2,training: "35' 6x45''R4(45''entre)"},{dayofweek:3,training: "R"},{dayofweek:4,training: "45' 2x8' R3(8'entre)"},{dayofweek:5,training: "R"},{dayofweek:6,training: "30'"},{dayofweek:7,training: "55'"}]},{weeknumber: 2,weektraining: [{dayofweek:1,training: "R"},{dayofweek:2,training: "35' 10x30''R4(30''entre)"},{dayofweek:3,training: "R"},{dayofweek:4,training: "35' 15' R3"},{dayofweek:5,training: "R"},{dayofweek:6,training: "25'"},{dayofweek:7,training: "50'"}]},{weeknumber: 1,weektraining: [{dayofweek:1,training: "R"},{dayofweek:2,training: "35' 2x3' R3(6'entre)"},{dayofweek:3,training: "R"},{dayofweek:4,training: "25'"},{dayofweek:5,training: "R"},{dayofweek:6,training: "20'"},{dayofweek:7,training: "Compétition 10 km"}]}]},
+        {name:'demi-marathon', program: [{weeknumber: 14,weektraining: [{dayofweek:1,training: "R"},{dayofweek:2,training: "50' 2x5' R3(5'entre)"},{dayofweek:3,training: "R"},{dayofweek:4,training: "45' 20' R2"},{dayofweek:5,training: "R"},{dayofweek:6,training: "30' "},{dayofweek:7,training: "70'"}]},{weeknumber: 13,weektraining: [{dayofweek:1,training: "R"},{dayofweek:2,training: "55' 3x3' R3(3'entre)"},{dayofweek:3,training: "R"},{dayofweek:4,training: "40' 3x6' R2(6'entre)"},{dayofweek:5,training: "R"},{dayofweek:6,training: "30' "},{dayofweek:7,training: "80'"}]},{weeknumber: 12,weektraining: [{dayofweek:1,training: "R"},{dayofweek:2,training: "45' 6x1' R3(1'entre)"},{dayofweek:3,training: "R"},{dayofweek:4,training: "R "},{dayofweek:5,training: "25' "},{dayofweek:6,training: "Test5 km "},{dayofweek:7,training: "35'"}]},{weeknumber: 11,weektraining: [{dayofweek:1,training: "R"},{dayofweek:2,training: "60' 2x4' R3(4'entre)"},{dayofweek:3,training: "R"},{dayofweek:4,training: "60' 2x10' R2(10'entre)"},{dayofweek:5,training: "R"},{dayofweek:6,training: "30' "},{dayofweek:7,training: "65'"}]},{weeknumber: 10,weektraining: [{dayofweek:1,training: "R"},{dayofweek:2,training: "55' 2x5' R3(5'entre)"},{dayofweek:3,training: "R"},{dayofweek:4,training: "55' 25' R2"},{dayofweek:5,training: "R"},{dayofweek:6,training: "30'"},{dayofweek:7,training: "85'"}]},{weeknumber: 9,weektraining: [{dayofweek:1,training: "R"},{dayofweek:2,training: "55' 6x1' R3(1'entre)"},{dayofweek:3,training: "R"},{dayofweek:4,training: "60' 3x8' R2(8'entre)"},{dayofweek:5,training: "R"},{dayofweek:6,training: "30'"},{dayofweek:7,training: "75'"}]},{weeknumber: 8,weektraining: [{dayofweek:1,training: "R"},{dayofweek:2,training: "65' 4x2' R3(2'entre)"},{dayofweek:3,training: "R"},{dayofweek:4,training: "65' 2x12' R2(8'entre)"},{dayofweek:5,training: "R"},{dayofweek:6,training: "30'"},{dayofweek:7,training: "75'"}]},{weeknumber: 7,weektraining: [{dayofweek:1,training: "R"},{dayofweek:2,training: "45' 2x3' R3(3'entre)"},{dayofweek:3,training: "R"},{dayofweek:4,training: "35'"},{dayofweek:5,training: "R"},{dayofweek:6,training: "25'"},{dayofweek:7,training: "Test 21,1 km"}]},{weeknumber: 6,weektraining: [{dayofweek:1,training: "R"},{dayofweek:2,training: "50' 2x4' R3(4'entre)"},{dayofweek:3,training: "R"},{dayofweek:4,training: "65' 20' R2"},{dayofweek:5,training: "R"},{dayofweek:6,training: "30'"},{dayofweek:7,training: "90'"}]},{weeknumber: 5,weektraining: [{dayofweek:1,training: "R"},{dayofweek:2,training: "55' 6' R3"},{dayofweek:3,training: "R"},{dayofweek:4,training: "60' 2x9' R2(9'entre)"},{dayofweek:5,training: "R"},{dayofweek:6,training: "30'"},{dayofweek:7,training: "80'"}]},{weeknumber: 4,weektraining: [{dayofweek:1,training: "R"},{dayofweek:2,training: "55' 2x5' R3(5'entre)"},{dayofweek:3,training: "R"},{dayofweek:4,training: "60' 3x8' R2(8'entre)"},{dayofweek:5,training: "R"},{dayofweek:6,training: "30'"},{dayofweek:7,training: "110'"}]},{weeknumber: 3,weektraining: [{dayofweek:1,training: "R"},{dayofweek:2,training: "45' 8' R3"},{dayofweek:3,training: "R"},{dayofweek:4,training: "60' 15' et 5' R2(5'entre)"},{dayofweek:5,training: "R"},{dayofweek:6,training: "30'"},{dayofweek:7,training: "90'"}]},{weeknumber: 2,weektraining: [{dayofweek:1,training: "R"},{dayofweek:2,training: "40' 3x2' R3(2'entre)"},{dayofweek:3,training: "R"},{dayofweek:4,training: "50' 18' R2"},{dayofweek:5,training: "R"},{dayofweek:6,training: "30'"},{dayofweek:7,training: "75'"}]},{weeknumber: 1,weektraining: [{dayofweek:1,training: "R"},{dayofweek:2,training: "35'"},{dayofweek:3,training: "R"},{dayofweek:4,training: "30'"},{dayofweek:5,training: "R"},{dayofweek:6,training: "25' "},{dayofweek:7,training: "Compétition 21,1 km"}]}]},
+        {name:'marathon', program: [{weeknumber: 14,weektraining: [{dayofweek:1,training: "R"},{dayofweek:2,training: "50' 5x3' R3 (3'entre)"},{dayofweek:3,training: "R"},{dayofweek:4,training: "75' 2x15' R2(10'entre)"},{dayofweek:5,training: "R"},{dayofweek:6,training: "40'"},{dayofweek:7,training: "85'"}]},{weeknumber: 13,weektraining: [{dayofweek:1,training: "R"},{dayofweek:2,training: "60' 4x2' R3(2'entre)"},{dayofweek:3,training: "R"},{dayofweek:4,training: "75' 3x9' R2(9'entre)"},{dayofweek:5,training: "R"},{dayofweek:6,training: "35'"},{dayofweek:7,training: "95'"}]},{weeknumber: 12,weektraining: [{dayofweek:1,training: "R"},{dayofweek:2,training: "50' 3x3' R3(6'entre)"},{dayofweek:3,training: "35'"},{dayofweek:4,training: "R"},{dayofweek:5,training: "30'"},{dayofweek:6,training: "Test 21,1 km R2"},{dayofweek:7,training: "45'"}]},{weeknumber: 11,weektraining: [{dayofweek:1,training: "R"},{dayofweek:2,training: "65' 2x4' R3(4'entre)"},{dayofweek:3,training: "35'"},{dayofweek:4,training: "70' 2x15' R2(10'entre)"},{dayofweek:5,training: "R"},{dayofweek:6,training: "40'"},{dayofweek:7,training: "90'"}]},{weeknumber: 10,weektraining: [{dayofweek:1,training: "R"},{dayofweek:2,training: "55' 3x5' R3(5'entre)"},{dayofweek:3,training: "35'"},{dayofweek:4,training: "65' 20' R2"},{dayofweek:5,training: "R"},{dayofweek:6,training: "35"},{dayofweek:7,training: "130'"}]},{weeknumber: 9,weektraining: [{dayofweek:1,training: "R"},{dayofweek:2,training: "50' 3x3' R3(3'entre)"},{dayofweek:3,training: "35'"},{dayofweek:4,training: "75' 30' R2"},{dayofweek:5,training: "R"},{dayofweek:6,training: "30'"},{dayofweek:7,training: "95'"}]},{weeknumber: 8,weektraining: [{dayofweek:1,training: "R"},{dayofweek:2,training: "70' 3x4' R3(4'entre)"},{dayofweek:3,training: "40'"},{dayofweek:4,training: "65' 3x10' R2(10'entre)"},{dayofweek:5,training: "R"},{dayofweek:6,training: "35'"},{dayofweek:7,training: "120'"}]},{weeknumber: 7,weektraining: [{dayofweek:1,training: "R"},{dayofweek:2,training: "65' 2x5' R3(5'entre)"},{dayofweek:3,training: "35'"},{dayofweek:4,training: "40'"},{dayofweek:5,training: "R"},{dayofweek:6,training: "30'"},{dayofweek:7,training: "Test 21,1 km"}]},{weeknumber: 6,weektraining: [{dayofweek:1,training: "R"},{dayofweek:2,training: "55'4x3' R3(3'entre)"},{dayofweek:3,training: "40'"},{dayofweek:4,training: "50' 3x8' R2(8'entre)"},{dayofweek:5,training: "R"},{dayofweek:6,training: "30'"},{dayofweek:7,training: "145'"}]},{weeknumber: 5,weektraining: [{dayofweek:1,training: "R"},{dayofweek:2,training: "65'10' R3"},{dayofweek:3,training: "35'"},{dayofweek:4,training: "55' 25' R2"},{dayofweek:5,training: "R"},{dayofweek:6,training: "40'"},{dayofweek:7,training: "95'"}]},{weeknumber: 4,weektraining: [{dayofweek:1,training: "R"},{dayofweek:2,training: "45' 8' R3"},{dayofweek:3,training: "40'"},{dayofweek:4,training: "50'2x12' R2(8'entre)"},{dayofweek:5,training: "R"},{dayofweek:6,training: "30'"},{dayofweek:7,training: "165'"}]},{weeknumber: 3,weektraining: [{dayofweek:1,training: "R"},{dayofweek:2,training: "65' 2x4' R3(4'entre)"},{dayofweek:3,training: "35'"},{dayofweek:4,training: "70' 30' R2"},{dayofweek:5,training: "R"},{dayofweek:6,training: "40'"},{dayofweek:7,training: "90'"}]},{weeknumber: 2,weektraining: [{dayofweek:1,training: "R"},{dayofweek:2,training: "60'3x3' R3(3'entre)"},{dayofweek:3,training: "35'"},{dayofweek:4,training: "65' 2x15' R2(15'entre)"},{dayofweek:5,training: "R"},{dayofweek:6,training: "35'"},{dayofweek:7,training: "75'"}]},{weeknumber: 1,weektraining: [{dayofweek:1,training: "R"},{dayofweek:2,training: "40'"},{dayofweek:3,training: "R"},{dayofweek:4,training: "35'"},{dayofweek:5,training: "R"},{dayofweek:6,training: "25'"},{dayofweek:7,training: "Marathon 42,2 km"}]}]}  
+      ];
+
+      var programB = [
+        {name:'5k', program: [{weeknumber: 14,weektraining: [{dayofweek:1,training: "R"},{dayofweek:2,training: "20'"},{dayofweek:3,training: "R"},{dayofweek:4,training: "25' 3' R2"},{dayofweek:5,training: "R"},{dayofweek:6,training: "R"},{dayofweek:7,training: "30'"}]},{weeknumber: 13,weektraining: [{dayofweek:1,training: "R"},{dayofweek:2,training: "25'"},{dayofweek:3,training: "R"},{dayofweek:4,training: "25' 4' R2"},{dayofweek:5,training: "R"},{dayofweek:6,training: "R"},{dayofweek:7,training: "35'"}]},{weeknumber: 12,weektraining: [{dayofweek:1,training: "R"},{dayofweek:2,training: "25'"},{dayofweek:3,training: "R"},{dayofweek:4,training: "30' 5' R2"},{dayofweek:5,training: "R"},{dayofweek:6,training: "R"},{dayofweek:7,training: "35'"}]},{weeknumber: 11,weektraining: [{dayofweek:1,training: "R"},{dayofweek:2,training: "20'"},{dayofweek:3,training: "R"},{dayofweek:4,training: "30' 8' R2"},{dayofweek:5,training: "R"},{dayofweek:6,training: "R"},{dayofweek:7,training: "30'"}]},{weeknumber: 10,weektraining: [{dayofweek:1,training: "R"},{dayofweek:2,training: "30' 2 x 1' R2(1' entre)"},{dayofweek:3,training: "R"},{dayofweek:4,training: "30' 2x5' R2 (5' entre)"},{dayofweek:5,training: "R"},{dayofweek:6,training: "R"},{dayofweek:7,training: "35'"}]},{weeknumber: 9,weektraining: [{dayofweek:1,training: "R"},{dayofweek:2,training: "30' 1'30'' R3 (1'30'' entre)"},{dayofweek:3,training: "R"},{dayofweek:4,training: "35' 2x3' R3 (3' entre)"},{dayofweek:5,training: "R"},{dayofweek:6,training: "20'"},{dayofweek:7,training: "40'"}]},{weeknumber: 8,weektraining: [{dayofweek:1,training: "R"},{dayofweek:2,training: "30' 2x1' R4 (1' entre)"},{dayofweek:3,training: "R"},{dayofweek:4,training: "35' 2x4' R3(4' entre)"},{dayofweek:5,training: "R"},{dayofweek:6,training: "20'"},{dayofweek:7,training: "40'"}]},{weeknumber: 7,weektraining: [{dayofweek:1,training: "R"},{dayofweek:2,training: "30' 3' R3"},{dayofweek:3,training: "R"},{dayofweek:4,training: "25'"},{dayofweek:5,training: "R"},{dayofweek:6,training: "R"},{dayofweek:7,training: "Test 5km"}]},{weeknumber: 6,weektraining: [{dayofweek:1,training: "R"},{dayofweek:2,training: "25' 2x2' R4 (2' entre)"},{dayofweek:3,training: "R"},{dayofweek:4,training: "30' dont 6' R3"},{dayofweek:5,training: "R"},{dayofweek:6,training: "R"},{dayofweek:7,training: "35'"}]},{weeknumber: 5,weektraining: [{dayofweek:1,training: "R"},{dayofweek:2,training: "30' 4x30'' R4 (1' entre)"},{dayofweek:3,training: "R"},{dayofweek:4,training: "40' 3x3' R3 (3' entre)"},{dayofweek:5,training: "R"},{dayofweek:6,training: "20'"},{dayofweek:7,training: "50'"}]},{weeknumber: 4,weektraining: [{dayofweek:1,training: "R"},{dayofweek:2,training: "30' 3x1' R4 (1' entre)"},{dayofweek:3,training: "R"},{dayofweek:4,training: "40' 5' R3"},{dayofweek:5,training: "R"},{dayofweek:6,training: "R"},{dayofweek:7,training: "40'"}]},{weeknumber: 3,weektraining: [{dayofweek:1,training: "R"},{dayofweek:2,training: "30' 4x45'' R4 (45'' entre)"},{dayofweek:3,training: "R"},{dayofweek:4,training: "35' 7' R3"},{dayofweek:5,training: "R"},{dayofweek:6,training: "20'"},{dayofweek:7,training: "45'"}]},{weeknumber: 2,weektraining: [{dayofweek:1,training: "R"},{dayofweek:2,training: "30' 6x30'' R4 (30'' entre)"},{dayofweek:3,training: "R"},{dayofweek:4,training: "30'9'R3"},{dayofweek:5,training: "R"},{dayofweek:6,training: "20'"},{dayofweek:7,training: "35'"}]},{weeknumber: 1,weektraining: [{dayofweek:1,training: "R"},{dayofweek:2,training: "30' 3' R4"},{dayofweek:3,training: "R"},{dayofweek:4,training: "25'"},{dayofweek:5,training: "R"},{dayofweek:6,training: "R"},{dayofweek:7,training: "Compétition 5km"}]}]},
+        {name:'10k', program: [{weeknumber: 14,weektraining: [{dayofweek:1,training: "R"},{dayofweek:2,training: "20' "},{dayofweek:3,training: "R"},{dayofweek:4,training: "25' 2x3' R2(3' entre)"},{dayofweek:5,training: "R"},{dayofweek:6,training: "R"},{dayofweek:7,training: "30' "}]},{weeknumber: 13,weektraining: [{dayofweek:1,training: "R"},{dayofweek:2,training: "30' "},{dayofweek:3,training: "R"},{dayofweek:4,training: "30' 2x4' R2(4' entre)"},{dayofweek:5,training: "R"},{dayofweek:6,training: "20' "},{dayofweek:7,training: "35' "}]},{weeknumber: 12,weektraining: [{dayofweek:1,training: "R"},{dayofweek:2,training: "25' "},{dayofweek:3,training: "R"},{dayofweek:4,training: "30' 2x5' R2(5' entre)"},{dayofweek:5,training: "R"},{dayofweek:6,training: "R"},{dayofweek:7,training: "30' "}]},{weeknumber: 11,weektraining: [{dayofweek:1,training: "R"},{dayofweek:2,training: "30' "},{dayofweek:3,training: "R"},{dayofweek:4,training: "30' 10' R2"},{dayofweek:5,training: "R"},{dayofweek:6,training: "20' "},{dayofweek:7,training: "40' "}]},{weeknumber: 10,weektraining: [{dayofweek:1,training: "R"},{dayofweek:2,training: "25' 2x1' R3(1' entre)"},{dayofweek:3,training: "R"},{dayofweek:4,training: "35' 2x6' R2(6' entre)"},{dayofweek:5,training: "R"},{dayofweek:6,training: "20' "},{dayofweek:7,training: "35' "}]},{weeknumber: 9,weektraining: [{dayofweek:1,training: "R"},{dayofweek:2,training: "35' 2x1' 30'' R3(1' 30'' entre)"},{dayofweek:3,training: "R"},{dayofweek:4,training: "40' 3x3' R3(3' entre)"},{dayofweek:5,training: "R"},{dayofweek:6,training: "25' "},{dayofweek:7,training: "45' "}]},{weeknumber: 8,weektraining: [{dayofweek:1,training: "R"},{dayofweek:2,training: "30' 2x1' R4(1' entre)"},{dayofweek:3,training: "R"},{dayofweek:4,training: "40' 8' R3"},{dayofweek:5,training: "R"},{dayofweek:6,training: "25' "},{dayofweek:7,training: "50' "}]},{weeknumber: 7,weektraining: [{dayofweek:1,training: "R"},{dayofweek:2,training: "35' 3' R3"},{dayofweek:3,training: "R"},{dayofweek:4,training: "30' "},{dayofweek:5,training: "R"},{dayofweek:6,training: "R"},{dayofweek:7,training: "Test 5 km"}]},{weeknumber: 6,weektraining: [{dayofweek:1,training: "R"},{dayofweek:2,training: "30' 2x2' R4(2' entre)"},{dayofweek:3,training: "R"},{dayofweek:4,training: "35' 2x4' R3(4' entre)"},{dayofweek:5,training: "R"},{dayofweek:6,training: "25' "},{dayofweek:7,training: "40' "}]},{weeknumber: 5,weektraining: [{dayofweek:1,training: "R"},{dayofweek:2,training: "35' 6x30'' R4(30'' entre)"},{dayofweek:3,training: "R"},{dayofweek:4,training: "45' 4x3' R3(3' entre)"},{dayofweek:5,training: "R"},{dayofweek:6,training: "20' "},{dayofweek:7,training: "55' "}]},{weeknumber: 4,weektraining: [{dayofweek:1,training: "R"},{dayofweek:2,training: "30' 3x1' R4(1' entre)"},{dayofweek:3,training: "R"},{dayofweek:4,training: "40' 2x5' R3(5' entre)"},{dayofweek:5,training: "R"},{dayofweek:6,training: "25' "},{dayofweek:7,training: "65' "}]},{weeknumber: 3,weektraining: [{dayofweek:1,training: "R"},{dayofweek:2,training: "30' 4x45'' R4(45'' entre)"},{dayofweek:3,training: "R"},{dayofweek:4,training: "40' 2x7' R3(7' entre)"},{dayofweek:5,training: "R"},{dayofweek:6,training: "25' "},{dayofweek:7,training: "50' "}]},{weeknumber: 2,weektraining: [{dayofweek:1,training: "R"},{dayofweek:2,training: "30' 6x30'' R4(30'' entre)"},{dayofweek:3,training: "R"},{dayofweek:4,training: "30' 10' R3"},{dayofweek:5,training: "R"},{dayofweek:6,training: "R"},{dayofweek:7,training: "40' "}]},{weeknumber: 1,weektraining: [{dayofweek:1,training: "R"},{dayofweek:2,training: "30' 3' R3"},{dayofweek:3,training: "R"},{dayofweek:4,training: "25' "},{dayofweek:5,training: "R"},{dayofweek:6,training: "20' "},{dayofweek:7,training: "Compétition 10km"}]}]},
+        {name:'demi-marathon', program: [{weeknumber: 14,weektraining: [{dayofweek:1,training: "R"},{dayofweek:2,training: "35' 8' R3"},{dayofweek:3,training: "R"},{dayofweek:4,training: "30' 15' R2"},{dayofweek:5,training: "R"},{dayofweek:6,training: "25' "},{dayofweek:7,training: "60' "}]},{weeknumber: 13,weektraining: [{dayofweek:1,training: "R"},{dayofweek:2,training: "40' 2x3' R3(3' entre)"},{dayofweek:3,training: "R"},{dayofweek:4,training: "35' 2x6' R2(6' entre)"},{dayofweek:5,training: "R"},{dayofweek:6,training: "25' "},{dayofweek:7,training: "70' "}]},{weeknumber: 12,weektraining: [{dayofweek:1,training: "R"},{dayofweek:2,training: "40' 4x1' R3(1' entre)"},{dayofweek:3,training: "R"},{dayofweek:4,training: "R"},{dayofweek:5,training: "20' "},{dayofweek:6,training: "Test 5km"},{dayofweek:7,training: "30' "}]},{weeknumber: 11,weektraining: [{dayofweek:1,training: "R"},{dayofweek:2,training: "45' 5' R3"},{dayofweek:3,training: "R"},{dayofweek:4,training: "45' 2x8' R2(8' entre)"},{dayofweek:5,training: "R"},{dayofweek:6,training: "30' "},{dayofweek:7,training: "60' "}]},{weeknumber: 10,weektraining: [{dayofweek:1,training: "R"},{dayofweek:2,training: "35' 2x4' R3(4' entre)"},{dayofweek:3,training: "R"},{dayofweek:4,training: "40' 20' R2"},{dayofweek:5,training: "R"},{dayofweek:6,training: "30' "},{dayofweek:7,training: "80' "}]},{weeknumber: 9,weektraining: [{dayofweek:1,training: "R"},{dayofweek:2,training: "40' 4x1' R3(1' entre)"},{dayofweek:3,training: "R"},{dayofweek:4,training: "45' 3x7' R2(7' entre)"},{dayofweek:5,training: "R"},{dayofweek:6,training: "30' "},{dayofweek:7,training: "70' "}]},{weeknumber: 8,weektraining: [{dayofweek:1,training: "R"},{dayofweek:2,training: "45' 3x2' R3(2' entre)"},{dayofweek:3,training: "R"},{dayofweek:4,training: "45' 2x9' R2(6' entre)"},{dayofweek:5,training: "R"},{dayofweek:6,training: "30' "},{dayofweek:7,training: "70' "}]},{weeknumber: 7,weektraining: [{dayofweek:1,training: "R"},{dayofweek:2,training: "40' 2x3' R3(3' entre)"},{dayofweek:3,training: "R"},{dayofweek:4,training: "30' "},{dayofweek:5,training: "R"},{dayofweek:6,training: "20' "},{dayofweek:7,training: "Test 21,1km"}]},{weeknumber: 6,weektraining: [{dayofweek:1,training: "R"},{dayofweek:2,training: "40' 4' R3"},{dayofweek:3,training: "R"},{dayofweek:4,training: "50' 18' R2"},{dayofweek:5,training: "R"},{dayofweek:6,training: "25' "},{dayofweek:7,training: "85' "}]},{weeknumber: 5,weektraining: [{dayofweek:1,training: "R"},{dayofweek:2,training: "35' 6' R3"},{dayofweek:3,training: "R"},{dayofweek:4,training: "45' 2x7' R2(7' entre)"},{dayofweek:5,training: "R"},{dayofweek:6,training: "30' "},{dayofweek:7,training: "75' "}]},{weeknumber: 4,weektraining: [{dayofweek:1,training: "R"},{dayofweek:2,training: "35' 2x5' R3(5' entre)"},{dayofweek:3,training: "R"},{dayofweek:4,training: "45' 2x8' R2(8' entre)"},{dayofweek:5,training: "R"},{dayofweek:6,training: "25' "},{dayofweek:7,training: "105' "}]},{weeknumber: 3,weektraining: [{dayofweek:1,training: "R"},{dayofweek:2,training: "30' 6' R3"},{dayofweek:3,training: "R"},{dayofweek:4,training: "40' 12' et4' R2(4' entre)"},{dayofweek:5,training: "R"},{dayofweek:6,training: "25' "},{dayofweek:7,training: "85' "}]},{weeknumber: 2,weektraining: [{dayofweek:1,training: "R"},{dayofweek:2,training: "25' 2x2' R3(2' entre)"},{dayofweek:3,training: "R"},{dayofweek:4,training: "30' 15' R2"},{dayofweek:5,training: "R"},{dayofweek:6,training: "20' "},{dayofweek:7,training: "70' "}]},{weeknumber: 1,weektraining: [{dayofweek:1,training: "R"},{dayofweek:2,training: "30' "},{dayofweek:3,training: "R"},{dayofweek:4,training: "25' "},{dayofweek:5,training: "R"},{dayofweek:6,training: "20' "},{dayofweek:7,training: "Compétition 21,1km"}]}]},
+        {name:'marathon', program: [{weeknumber: 14,weektraining: [{dayofweek:1,training: "R"},{dayofweek:2,training: "50' 4x3' R3 (3' entre)"},{dayofweek:3,training: "R"},{dayofweek:4,training: "75' 2x12' R2 (8' entre)"},{dayofweek:5,training: "R"},{dayofweek:6,training: "35'"},{dayofweek:7,training: "75'"}]},{weeknumber: 13,weektraining: [{dayofweek:1,training: "R"},{dayofweek:2,training: "60' 3x2' R3 (2' entre)"},{dayofweek:3,training: "R"},{dayofweek:4,training: "75' 2x9' R2 (9' entre)"},{dayofweek:5,training: "R"},{dayofweek:6,training: "25'"},{dayofweek:7,training: "90'"}]},{weeknumber: 12,weektraining: [{dayofweek:1,training: "R"},{dayofweek:2,training: "40' 2x3' R3 (6' entre)"},{dayofweek:3,training: "R"},{dayofweek:4,training: "R"},{dayofweek:5,training: "25'"},{dayofweek:6,training: "Test 21,1 km R2"},{dayofweek:7,training: "35'"}]},{weeknumber: 11,weektraining: [{dayofweek:1,training: "R"},{dayofweek:2,training: "60' 2x4' R3 (4' entre)"},{dayofweek:3,training: "R"},{dayofweek:4,training: "65' 2x12' R2 (8' entre)"},{dayofweek:5,training: "R"},{dayofweek:6,training: "30'"},{dayofweek:7,training: "90'"}]},{weeknumber: 10,weektraining: [{dayofweek:1,training: "R"},{dayofweek:2,training: "55' 2x5' R3 (5' entre)"},{dayofweek:3,training: "R"},{dayofweek:4,training: "60' 15' R2"},{dayofweek:5,training: "R"},{dayofweek:6,training: "30'"},{dayofweek:7,training: "130'"}]},{weeknumber: 9,weektraining: [{dayofweek:1,training: "R"},{dayofweek:2,training: "50' 3x3' R3 (3' entre)"},{dayofweek:3,training: "R"},{dayofweek:4,training: "70' 25' R2"},{dayofweek:5,training: "R"},{dayofweek:6,training: "30'"},{dayofweek:7,training: "90'"}]},{weeknumber: 8,weektraining: [{dayofweek:1,training: "R"},{dayofweek:2,training: "75' 2x4' R3 (4' entre)"},{dayofweek:3,training: "R"},{dayofweek:4,training: "70' 3x8' R2 (8' entre)"},{dayofweek:5,training: "R"},{dayofweek:6,training: "30'"},{dayofweek:7,training: "120'"}]},{weeknumber: 7,weektraining: [{dayofweek:1,training: "R"},{dayofweek:2,training: "45' 2x5' R3 (5' entre)"},{dayofweek:3,training: "R"},{dayofweek:4,training: "40'"},{dayofweek:5,training: "R"},{dayofweek:6,training: "30'"},{dayofweek:7,training: "Test 21,1 km"}]},{weeknumber: 6,weektraining: [{dayofweek:1,training: "R"},{dayofweek:2,training: "55' 3x3' R3 (5' entre)"},{dayofweek:3,training: "R"},{dayofweek:4,training: "45' 3x6' R2 (6' entre)"},{dayofweek:5,training: "R"},{dayofweek:6,training: "25'"},{dayofweek:7,training: "150'"}]},{weeknumber: 5,weektraining: [{dayofweek:1,training: "R"},{dayofweek:2,training: "60' 2x5' R3 (5' entre)"},{dayofweek:3,training: "R"},{dayofweek:4,training: "50' 20' R2"},{dayofweek:5,training: "R"},{dayofweek:6,training: "35'"},{dayofweek:7,training: "95'"}]},{weeknumber: 4,weektraining: [{dayofweek:1,training: "R"},{dayofweek:2,training: "40' 6' R3"},{dayofweek:3,training: "R"},{dayofweek:4,training: "45' 2x10' R2 (10' entre)"},{dayofweek:5,training: "R"},{dayofweek:6,training: "R"},{dayofweek:7,training: "180'"}]},{weeknumber: 3,weektraining: [{dayofweek:1,training: "R"},{dayofweek:2,training: "60' 2x4' R3 (4' entre)"},{dayofweek:3,training: "R"},{dayofweek:4,training: "70' 25' R2"},{dayofweek:5,training: "R"},{dayofweek:6,training: "35'"},{dayofweek:7,training: "90'"}]},{weeknumber: 2,weektraining: [{dayofweek:1,training: "R"},{dayofweek:2,training: "55' 2x3' R3 (3' entre)"},{dayofweek:3,training: "R"},{dayofweek:4,training: "65' 2x10' R2 (10' entre)"},{dayofweek:5,training: "R"},{dayofweek:6,training: "30'"},{dayofweek:7,training: "75'"}]},{weeknumber: 1,weektraining: [{dayofweek:1,training: "R"},{dayofweek:2,training: "35'"},{dayofweek:3,training: "R"},{dayofweek:4,training: "30'"},{dayofweek:5,training: "R"},{dayofweek:6,training: "20'"},{dayofweek:7,training: "Marathon 42,2 km"}]}]}
+      ];
+
+      var programs = {"programA": programA, "programB": programB};
+
+      var programsToName = {"programA": "Programme A", "programB": "Programme B"};
+
+      var userOptions = {
+        selectedCalendarId: null,
+        selectedLevel: null,
+        selectedProgramIndex: null,
+        selectedDate: null
+      };
+    
+      function handleClientLoad() {
+        gapi.load('client:auth2', initClient);
+      }
+
+      function initClient() {
+        gapi.client.init({
+            apiKey: 'AIzaSyA0cbVPd-VR-qt4pf9a5nlzuKo3yjpjGp8',
+            discoveryDocs: ["https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest"],
+            clientId: '892783317521-l0bmc7bu6ci0olj31gosspjhd7hb4ojd.apps.googleusercontent.com',
+            scope: 'https://www.googleapis.com/auth/calendar'
+        }).then(function () {
+          // Listen for sign-in state changes.
+          gapi.auth2.getAuthInstance().isSignedIn.listen(updateSigninStatus);
+
+          // Handle the initial sign-in state.
+          updateSigninStatus(gapi.auth2.getAuthInstance().isSignedIn.get());
+        }), function(reason) {
+          console.log('Error: ' + reason.result.error.message);
+        };
+      }
+
+      function updateSigninStatus(isSignedIn) {
+        if (isSignedIn) {
+          showConnectedOptions();
+        } else {
+          signIn();
+        }
+      }
+
+      function signIn() {
+        var auth2 = gapi.auth2.getAuthInstance();
+        if(!auth2.isSignedIn.get()) {
+          auth2.signIn({
+            prompt: 'select_account',
+            ux_mode: 'redirect'
+          });
+        }
+      }
+
+      function toggleSelected(element, groupId) {
+        var selectedElements = document.getElementById(groupId).getElementsByClassName("selected");
+
+        for (let e of selectedElements) {
+          e.classList.toggle('selected')
+        }
+        
+        element.classList.toggle('selected');
+      }
+
+      function listCalendars() {
+        var container = document.getElementById('calendar-list'); 
+
+        while (container.firstChild) {
+          container.removeChild(container.firstChild);
+        }
+
+        return gapi.client.calendar.calendarList.list({
+          'minAccessRole': 'owner'
+        }).then(function(response) {
+          var calendars = response.result.items;
+          console.log('list of calendars:');
+
+          var calendarList = calendars.map(calendar => ({
+            id: calendar.id,
+            summary: calendar.summary
+          }));
+
+          calendarList.forEach(element => {
+            container.insertAdjacentHTML('afterbegin', '<a class="calendar-item item" onclick="toggleSelected(this, \'calendar-list\'); selectCalendar(\'' + element.id + '\')">' + element.summary + '</a>');
+          });
+
+          return calendarList;
+        }, function(reason) {
+          console.log('Error: ' + reason.result.error.message);
+          return [];
+        });
+      }
+
+      function listProgram(levelContainer, programKey) {
+        levelContainer.insertAdjacentHTML("beforeend", '<span class="title">' + programsToName[programKey] + '</span>');
+        var programElement = document.createElement('div');
+        programElement.className="program";
+
+        programs[programKey].forEach((levelProgram, programIndex) => {
+          programElement.insertAdjacentHTML('beforeend', '<a class="level-item item" onclick="toggleSelected(this, \'program-list\'); userOptions.selectedLevel=\'' + programKey+ '\'; userOptions.selectedProgramIndex=\''+ programIndex + '\'">' + levelProgram.name + '</a>');
+        });
+        levelContainer.insertAdjacentElement("beforeend", programElement);
+
+      }
+
+      function listPrograms() {
+        var container = document.getElementById('program-list');
+        
+        while (container.firstChild) {
+          container.removeChild(container.firstChild);
+        }
+
+        Object.keys(programs).forEach(function(key,index) {
+          listProgram(container, key);
+        });
+
+      }
+
+      function addEventDateSelection() {
+        var container = document.getElementById('dateselection');
+        container.insertAdjacentHTML("beforeend", '<span class="title">Date de l\'évènement</span>');
+        container.insertAdjacentHTML("beforeend", '<input id="event-date" type="date"/>');
+      }
+
+      function addAddToCalendarButton() {
+        var container = document.getElementById('addToCalendar');
+        container.insertAdjacentHTML("beforeend", '<a class="button item" onclick="addToCalendar()">Ajouter à mon calendrier</a>')
+      }
+
+      function showConnectedOptions() {
+        listCalendars();
+        listPrograms();
+        addEventDateSelection();
+        addAddToCalendarButton();
+      }      
+
+      function addToCalendar() {
+        var eventdate = document.querySelector('#event-date').valueAsDate;
+        addToCalendarExec(userOptions.selectedCalendarId, eventdate);
+
+        var messageContainer = document.getElementById('message');
+        while (messageContainer.firstChild) {
+          messageContainer.removeChild(messageContainer.firstChild);
+        }
+        messageContainer.insertAdjacentHTML("beforeend", 'Terminer! <a href="https://calendar.google.com">Visiter Google Calendar</a>')
+      }
+
+      function selectCalendar(calendarId){
+        userOptions.selectedCalendarId = calendarId;
+      }
+
+      function addToCalendarExec(selectedCalendarId, lastEventDate) {
+        listCalendars().then(calendarList => {
+          var calendar = calendarList.filter(calendar => calendar.id === selectedCalendarId)[0];
+
+          var batch = gapi.client.newBatch();
+          programs[userOptions.selectedLevel][userOptions.selectedProgramIndex].program
+          .filter(trainingWeek => new Date() < new Date(lastEventDate.getTime() - (60*60*24*7*trainingWeek.weeknumber*1000))) //TODO: Get something less shittier to deal with dates
+          .forEach(trainingWeek => {
+            trainingWeek.weektraining
+              .filter(week => week.training !== "R")
+              .forEach(week => {
+                  var eventDate = new Date(lastEventDate.getTime() - (1000*60*60*24*7*(trainingWeek.weeknumber)) + (1000*60*60*24*(week.dayofweek)));
+                  console.log(eventDate.toISOString().split('T')[0]);
+                  batch.add(
+                    gapi.client.calendar.events.insert({
+                      'calendarId': calendar.id,
+                      'resource': {
+                        'summary': week.training,
+                        'start': {
+                          'date': eventDate.toISOString().split('T')[0]
+                        },
+                        'end': {
+                          'date': eventDate.toISOString().split('T')[0]
+                        }
+                      }
+                  }));
+              });
+          });
+          batch.execute();
+        });
+      }
+
+    </script>
+    <script async defer src="https://apis.google.com/js/api.js"
+      onload="this.onload=function(){};handleClientLoad()"
+      onreadystatechange="if (this.readyState === 'complete') this.onload()">
+    </script>
+  </body>
+</html>
